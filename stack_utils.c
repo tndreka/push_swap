@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 21:54:46 by tndreka           #+#    #+#             */
-/*   Updated: 2024/05/21 22:06:11 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/05/22 22:52:26 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,16 @@ t_stack *get_last_node(t_stack *stack)
 {
 	if (!stack)
 		return (0);
-	while (stack)
+	while (stack->next)
+		stack = stack->next;
+	return (stack);
+}
+
+t_stack *get_last_before(t_stack *stack)
+{
+	if (!stack || !stack->next || !stack->next->next)
+		return (NULL);
+	while (stack && stack->next && stack->next->next != NULL)
 		stack = stack->next;
 	return (stack);
 }

@@ -1,12 +1,12 @@
 NAME = push_swap
 CFLAGS = -Wall -Wextra -Werror
-SRC = push_swap.c
+SRC = push_swap.c rotate.c push.c reverse.c stack_utils.c swap.c
 OBJ = $(SRC:.c=.o)
 
 all: ${NAME}
 
 ${NAME}: ${OBJ}
-	cc $(OBJ) $(FT_PRINTF) -o $(NAME) $(CFLAGS)
+	cc $(OBJ) -o $(NAME) $(CFLAGS)
 
 %.o: %.cc
 	cc -c -o $< -o $@ ${CFLAGS}
