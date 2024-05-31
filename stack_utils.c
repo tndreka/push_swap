@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 21:54:46 by tndreka           #+#    #+#             */
-/*   Updated: 2024/05/29 14:42:48 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/05/31 17:51:08 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,31 @@ int is_space(char *argv)// checker if they are any space in the input argv
 		i++;
 	}
 	return (0);
+}
+//so this function check the stack if its sorted in ascendingored || descending order
+// 
+int check_sort(t_stack *stack)
+{
+	t_stack *temp;
+	int asc_o;
+	int dsc_o;
+	temp = stack;
+	asc_o = 1;
+	dsc_o = 1;
+	
+	if (!stack || !stack->next)
+		return 0;
+	while (temp->next)
+	{
+		if (temp->data > temp->next->data)
+			asc_o = 0;
+		if (temp->data < temp->next->data)
+			dsc_o = 0;
+		temp = temp->next;
+	}
+	if (asc_o && !dsc_o)
+		return 1; //list its sorted in ASCENDING ORDER
+	if (!asc_o && dsc_o)
+		return -1; // list its sorted in DESCENDING ORDER
+	return 0;
 }

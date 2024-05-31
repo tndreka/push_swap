@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 16:20:54 by tndreka           #+#    #+#             */
-/*   Updated: 2024/05/28 19:10:54 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/05/31 17:43:51 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,30 @@ int	argument_checker(char **argv) // check the argument if is a number from 0 to
 {
 	int i = 1;
 	int j;
+	long num;
 	if (!argv)
-		return (0);
+		return (1);
 	while (argv[i])
 	{
+		num = ft_atol(argv[i]);
+		if (num < -2147483647 || num > 2147483647)
+				return (1);
 		j = 0;
 		while (argv[i][j])
 		{
-			if (!((argv[i][j] >= '0' &&  argv[i][j] <= '9') || argv[i][j] == 32 || argv[i][j] == '-')) // here we check if it is anything else other than number
-				return (0); // if yes return 0 // stop the program
+			if (argv[i][j] == '+' || argv[i][j] == '-')
+				j++;
+			if (ft_isalpha(argv[i][j]) == 1)
+				return (1);
+			if (!ft_isdigit(argv[i][j]) && argv[i][j] != 32) // here we check if it is anything else other than number
+				return (1);
 			j++;
 		}
 		i++;
 	}
-	return (1);// if are numbers go on 
+	return (0);// if are numbers go on 
 }
+//creates the stack with the command line values
 
 t_stack *stackmaker(int argc, char **argv)
 {
@@ -90,4 +99,30 @@ int check_duplicate(t_stack *stack)
 		stack = stack->next;
 	}
 	return (0);
+}
+long int	ft_atol(const char *str)
+{
+	int			i;
+	long int	sign;
+	int			res;
+
+	res = 0;
+	sign = 1;
+	i = 0;
+	while (str[i] == 32 || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
+	{
+		if (str[i] == '-')
+		{
+			sign *= -1;
+		}
+		i++;
+	}
+	while (str[i] != '\0' && str[i] >= 48 && str[i] <= 57)
+	{
+		res = res * 10 + str[i] - 48;
+		i++;
+	}
+	return (res * sign);
 }

@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 15:02:45 by tndreka           #+#    #+#             */
-/*   Updated: 2024/05/27 17:43:45 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/05/31 15:41:51 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,18 @@ static void swap(t_stack **root)
 void sa(t_stack **a)
 {
 	swap(a);
-	write(1, "sa\n", 3);
+	ft_printf("sa\n");
 }
 void sb(t_stack **b)
 {
 	swap(b);
-	write(1, "sb\n", 3);
+	ft_printf("sb\n");
 }
 void ss(t_stack **a, t_stack **b)
 {
 	swap(a);
 	swap(b);
-	write(1, "ss\n", 3);
+	ft_printf("ss\n");
 }
 // t_stack *create_node(int value)
 // {

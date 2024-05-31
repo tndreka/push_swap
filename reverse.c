@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 21:26:44 by tndreka           #+#    #+#             */
-/*   Updated: 2024/05/22 22:44:03 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/05/31 15:43:28 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,16 @@ static void reverse(t_stack **stack)
 void rra(t_stack **a)
 {
 	reverse(a);
-	write(1, "rra\n", 4);
+	ft_printf("rra\n");
 }
 void rrb(t_stack **b)
 {
 	reverse(b);
-	write(1, "rrb\n", 4);
+	ft_printf("rrb\n");
 }
 void rrr(t_stack **a, t_stack **b)
 {
 	reverse(a);
 	reverse(b);
-	write(1, "rrr\n", 4);
+	ft_printf("rrr\n");
 }

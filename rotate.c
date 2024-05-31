@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 14:58:07 by tndreka           #+#    #+#             */
-/*   Updated: 2024/05/22 21:37:04 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/05/31 15:42:28 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,18 @@ static	void	rotate(t_stack **stack)
 void ra(t_stack **a)
 {
 	rotate(a);
-	write(1, "ra\n", 3);
+	ft_printf("ra\n");
 }
 void rb(t_stack **b)
 {
 	rotate(b);
-	write(1, "rb\n", 3);
+	ft_printf("rb\n");
 }
 void rr(t_stack **a, t_stack **b)
 {
 	rotate(a);
 	rotate(b);
-	write(1, "rr\n", 3);
+	ft_printf("rr\n");
 }
 // t_stack *create_node(int value)
 // {
