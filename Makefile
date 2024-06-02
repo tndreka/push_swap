@@ -28,14 +28,14 @@ CFLAGS = -Wall -Wextra -Werror
 LIBFTDIR = libft/
 PRINTFDIR = ft__printf/
 NAME = push_swap
-SRC = push_swap.c rotate.c push.c reverse.c stack_utils.c swap.c utils.c
+SRC = push_swap.c rotate.c push.c reverse.c stack_utils.c swap.c utils.c sort3.c
 INCLUDE = -L ./libft -lft -L ./ft__printf -lftprintf
 OBJS = ${SRC:.c=.o}
 all: ${NAME}
 ${NAME}: ${OBJS}
 	@make -sC ${LIBFTDIR}
 	@make -sC ${PRINTFDIR}
-	@${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${INCLUDE}
+	@${CC} ${CFLAGS} -o ${NAME} ${OBJS} ${INCLUDE} -g
 clean:
 	@rm -f ${OBJS}
 	@cd ${LIBFTDIR} && ${MAKE} clean

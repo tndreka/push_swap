@@ -6,12 +6,12 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 21:26:44 by tndreka           #+#    #+#             */
-/*   Updated: 2024/05/31 15:43:28 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/06/02 21:43:44 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+//this thunction put the last node first 
 static void reverse(t_stack **stack)
 {
 	t_stack *first_node;

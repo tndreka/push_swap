@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:40:34 by tndreka           #+#    #+#             */
-/*   Updated: 2024/05/31 17:53:50 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/06/02 21:41:19 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 int main(int argc, char **argv)
 {
 	t_stack *a = NULL; // initialization of the stack A  B
-	t_stack *b = NULL;
+	// t_stack *b = NULL;
 	if (argc == 1)
 		return(0);
 	else if (argument_checker(argv))
@@ -37,12 +37,21 @@ int main(int argc, char **argv)
 		}
 	if (check_sort(a))
 		printf("arrey its sorted");
-	else if (!check_sort(&a))
+	else if (!check_sort(a))
 	{
-		if (len_stack == 3)
-			sort_three(&a);
-		else
-			sort_full_stack(&a);
+		if (len_stack(a) == 3)
+		{	
+			a = sort_three(a);
+			while (a)
+       		{
+				printf("\nthis is a sort:\n");
+        		printf("%d\n", a->data);
+        		a = a->next;
+        	}
+		// else
+		// 	sort_full_stack(a);
+		}
 	}
 	return 0; 
 }
+// this is the main file //

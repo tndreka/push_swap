@@ -6,12 +6,12 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 14:58:04 by tndreka           #+#    #+#             */
-/*   Updated: 2024/05/31 15:43:00 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/06/02 21:42:04 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+//this function pushes one element in one stack to another 
 static void push(t_stack **dst, t_stack **src)
 {
 	t_stack *push_node;

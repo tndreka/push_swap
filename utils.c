@@ -6,12 +6,12 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 16:20:54 by tndreka           #+#    #+#             */
-/*   Updated: 2024/05/31 17:43:51 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/06/02 21:44:53 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+//helper function
 int	argument_checker(char **argv) // check the argument if is a number from 0 to 9 a positive or a negative number  
 {
 	int i = 1;

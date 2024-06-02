@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 22:50:41 by tndreka           #+#    #+#             */
-/*   Updated: 2024/05/31 17:51:27 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/06/02 21:41:39 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@ void ss(t_stack **a, t_stack **b);
 void ra(t_stack **a);
 void rb(t_stack **b);
 void rr(t_stack **a, t_stack **b);
+void rra(t_stack **a);
+void rrb(t_stack **b);
+void rrr(t_stack **a, t_stack **b);
 /* STACK */
 int len_stack(t_stack *stack);
 t_stack *get_last_node(t_stack *stack);
@@ -55,4 +58,6 @@ int check_duplicate(t_stack *stack);
 int check_sort(t_stack *stack);
 /*HELPER FUNCTION's*/
 long int	ft_atol(const char *str);
+t_stack *sort_three(t_stack *stack);
 #endif
+//header file

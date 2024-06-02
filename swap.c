@@ -6,12 +6,12 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 15:02:45 by tndreka           #+#    #+#             */
-/*   Updated: 2024/05/31 15:41:51 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/06/02 21:44:38 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+//swap function
 static void swap(t_stack **root)
 {
 	t_stack *swap_first_node;

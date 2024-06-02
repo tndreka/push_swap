@@ -6,12 +6,12 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 21:54:46 by tndreka           #+#    #+#             */
-/*   Updated: 2024/05/31 17:51:08 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/06/02 21:44:55 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+//finction for stack
 int len_stack(t_stack *stack) //this finds the len of stack
 {
 	int	i;
@@ -53,6 +53,7 @@ t_stack *create_node(int value, t_stack *stack)// this creates node
 	stack = node;
 	return node;
 }
+
 int is_space(char *argv)// checker if they are any space in the input argv
 {
 	int i = 0;
@@ -79,7 +80,7 @@ int check_sort(t_stack *stack)
 	
 	if (!stack || !stack->next)
 		return 0;
-	while (temp->next)
+	while (temp->next) // check if temp its ascending or descendin
 	{
 		if (temp->data > temp->next->data)
 			asc_o = 0;
