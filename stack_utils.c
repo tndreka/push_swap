@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 21:54:46 by tndreka           #+#    #+#             */
-/*   Updated: 2024/06/02 21:44:55 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/06/03 03:18:59 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,24 +73,39 @@ int check_sort(t_stack *stack)
 {
 	t_stack *temp;
 	int asc_o;
-	int dsc_o;
+	// int dsc_o;
 	temp = stack;
 	asc_o = 1;
-	dsc_o = 1;
+	// dsc_o = 1;
 	
 	if (!stack || !stack->next)
 		return 0;
 	while (temp->next) // check if temp its ascending or descendin
 	{
-		if (temp->data > temp->next->data)
-			asc_o = 0;
+		// if (temp->data > temp->next->data)
+		// 	asc_o = 0;
 		if (temp->data < temp->next->data)
-			dsc_o = 0;
+			asc_o = 0;
 		temp = temp->next;
 	}
-	if (asc_o && !dsc_o)
-		return 1; //list its sorted in ASCENDING ORDER
-	if (!asc_o && dsc_o)
-		return -1; // list its sorted in DESCENDING ORDER
+	// if (asc_o && !dsc_o)
+	// 	return 1; //list its sorted in ASCENDING ORDER
+	// if (!asc_o && dsc_o)
+	// 	return -1; // list its sorted in DESCENDING ORDER
 	return 0;
 }
+// int check_sort(t_stack *stack)
+// {
+// 	t_stack *temp;
+// 	temp = stack;
+
+// 	if (!stack || !stack->next)
+// 		return (0);
+// 	while (temp->next)
+// 	{
+// 		if (temp->data < temp->next->data)
+// 			return (1);
+// 		temp = temp->next;
+// 	}
+// 	return (0);
+// }
