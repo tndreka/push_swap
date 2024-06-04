@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 22:50:41 by tndreka           #+#    #+#             */
-/*   Updated: 2024/06/02 21:41:39 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/06/04 15:58:05 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ t_stack *create_node(int value, t_stack *stack);
 int is_space(char *argv);
 /*STACK INIT*/
 t_stack *stackmaker(int argc, char **argv);
-t_stack *make_list(t_stack *stack, char **str);
+t_stack *listmaker(t_stack *stack, char **str);
 /*CHECKER'S*/
 int	argument_checker(char **argv);
 int check_duplicate(t_stack *stack);
-int check_sort(t_stack *stack);
+int sortchecker(t_stack *stack);
 /*HELPER FUNCTION's*/
 long int	ft_atol(const char *str);
 t_stack *sort_three(t_stack *stack);

@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 16:20:54 by tndreka           #+#    #+#             */
-/*   Updated: 2024/06/02 21:44:53 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/06/04 16:33:18 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	argument_checker(char **argv) // check the argument if is a number from 0 to
 	while (argv[i])
 	{
 		num = ft_atol(argv[i]);
-		if (num < -2147483647 || num > 2147483647)
+		if (num < -2147483648 || num > 2147483647)
 				return (1);
 		j = 0;
 		while (argv[i][j])
@@ -52,7 +52,7 @@ t_stack *stackmaker(int argc, char **argv)
 		if (ft_strlen(argv[i]) > 1 && is_space(argv[i]))
 		{
 			string = ft_split(argv[i], 32);
-			stack = make_list(stack, string);
+			stack = listmaker(stack, string);
 		}
 		else
 			stack = create_node(ft_atoi(argv[i]), stack);
@@ -61,7 +61,7 @@ t_stack *stackmaker(int argc, char **argv)
 	return (stack);
 }
 
-t_stack *make_list(t_stack *stack, char **str)
+t_stack *listmaker(t_stack *stack, char **str)
 {
 	int len = 0;
 	t_stack *temp;

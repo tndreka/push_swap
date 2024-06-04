@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:40:34 by tndreka           #+#    #+#             */
-/*   Updated: 2024/06/03 02:28:56 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/06/04 16:54:59 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,18 +35,18 @@ int main(int argc, char **argv)
 			ft_printf("Error\n");
 			return (1);
 		}
-	if (check_sort(a))
-		printf("arrey its sorted ascending order");
-	else if (!check_sort(a))
+	if (sortchecker(a))
+		return 0;
+	else if (!sortchecker(a))
 	{
 		if (len_stack(a) == 3)
 		{	
 			a = sort_three(a);
-			while (a)
-       		{
-        		printf("%d\n", a->data);
-        		a = a->next;
-        	}
+			// while (a)
+       		// {
+        	// 	printf("%d\n", a->data);
+        	// 	a = a->next;
+        	// }
 		// else
 		// 	sort_full_stack(a);
 		}

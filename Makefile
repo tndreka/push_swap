@@ -24,7 +24,7 @@
 # .PHONY: all clean fclean re
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 LIBFTDIR = libft/
 PRINTFDIR = ft__printf/
 NAME = push_swap
