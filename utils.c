@@ -6,24 +6,25 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 16:20:54 by tndreka           #+#    #+#             */
-/*   Updated: 2024/06/04 16:33:18 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/06/10 20:47:57 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 //helper function
-int	argument_checker(char **argv) // check the argument if is a number from 0 to 9 a positive or a negative number  
+// check the argument if is a number from 0 to 9 a positive or a negative number
+int	argument_checker(char **argv)
 {
-	int i = 1;
-	int j;
-	long num;
-	if (!argv)
-		return (1);
+	int		i;
+	int		j;
+	long	num;
+
+	i = 1;
 	while (argv[i])
 	{
 		num = ft_atol(argv[i]);
 		if (num < -2147483648 || num > 2147483647)
-				return (1);
+			return (1);
 		j = 0;
 		while (argv[i][j])
 		{
@@ -31,59 +32,20 @@ int	argument_checker(char **argv) // check the argument if is a number from 0 to
 				j++;
 			if (ft_isalpha(argv[i][j]) == 1)
 				return (1);
-			if (!ft_isdigit(argv[i][j]) && argv[i][j] != 32) // here we check if it is anything else other than number
+			if (!ft_isdigit(argv[i][j]) && argv[i][j] != 32)
 				return (1);
 			j++;
 		}
 		i++;
 	}
-	return (0);// if are numbers go on 
-}
-//creates the stack with the command line values
-
-t_stack *stackmaker(int argc, char **argv)
-{
-	t_stack *stack = NULL;
-	char 	**string; 
-	int i = argc - 1;
-
-	while (i > 0)
-	{
-		if (ft_strlen(argv[i]) > 1 && is_space(argv[i]))
-		{
-			string = ft_split(argv[i], 32);
-			stack = listmaker(stack, string);
-		}
-		else
-			stack = create_node(ft_atoi(argv[i]), stack);
-		i--;
-	}
-	return (stack);
+	return (0);
 }
 
-t_stack *listmaker(t_stack *stack, char **str)
+int	check_duplicate(t_stack *stack)
 {
-	int len = 0;
-	t_stack *temp;
-	while (str[len])
-		len++;
-	while (len > 0)
-	{
-		temp = malloc(sizeof(t_stack));
-		if (!temp)
-			return NULL;
-		temp->data = ft_atoi(str[len - 1]);
-		temp->next = stack;
-		stack = temp; 
-		len--;
-	}
-	return (stack);
-}
+	t_stack		*temp;
+	int			i;
 
-int check_duplicate(t_stack *stack)
-{
-	t_stack *temp;
-	int i;
 	while (stack)
 	{
 		temp = stack;
@@ -100,6 +62,7 @@ int check_duplicate(t_stack *stack)
 	}
 	return (0);
 }
+
 long int	ft_atol(const char *str)
 {
 	int			i;

@@ -6,13 +6,13 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 21:54:46 by tndreka           #+#    #+#             */
-/*   Updated: 2024/06/04 16:18:53 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/06/10 20:52:22 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-//finction for stack
-int len_stack(t_stack *stack) //this finds the len of stack
+//functions for stack
+int	len_stack(t_stack *stack)
 {
 	int	i;
 
@@ -24,9 +24,11 @@ int len_stack(t_stack *stack) //this finds the len of stack
 		stack = stack->next;
 		i++;
 	}
-	return(i);
+	return (i);
 }
-t_stack *get_last_node(t_stack *stack) // get the last node of the stack
+
+// get the last node of the stack
+t_stack	*get_last_node(t_stack *stack)
 {
 	if (!stack)
 		return (0);
@@ -35,7 +37,8 @@ t_stack *get_last_node(t_stack *stack) // get the last node of the stack
 	return (stack);
 }
 
-t_stack *get_last_before(t_stack *stack) // gets the node that is one position before last node 
+// gets the node that is one position before last node 
+t_stack	*get_last_before(t_stack *stack)
 {
 	if (!stack || !stack->next || !stack->next->next)
 		return (NULL);
@@ -43,20 +46,27 @@ t_stack *get_last_before(t_stack *stack) // gets the node that is one position b
 		stack = stack->next;
 	return (stack);
 }
-t_stack *create_node(int value, t_stack *stack)// this creates node
+
+// this creates node
+t_stack	*create_node(int value, t_stack *stack)
 {
-	t_stack *node = (t_stack*)malloc(sizeof(t_stack));
-	if (!node)	
+	t_stack	*node;
+
+	node = (t_stack *) malloc (sizeof(t_stack));
+	if (! node)
 		return (NULL);
 	node->data = value;
 	node->next = stack;
 	stack = node;
-	return node;
+	return (node);
 }
 
-int is_space(char *argv)// checker if they are any space in the input argv
+// checker if they are any space in the input argv
+int	is_space(char *argv)
 {
-	int i = 0;
+	int	i;
+
+	i = 0;
 	if (!argv)
 		return (1);
 	while (argv[i])
@@ -67,7 +77,25 @@ int is_space(char *argv)// checker if they are any space in the input argv
 	}
 	return (0);
 }
-//so this function check the stack if its sorted in ascendingored || descending order
+
+int	sortchecker(t_stack *stack)
+{
+	t_stack	*temp;
+
+	temp = stack;
+	if (!stack || !stack->next)
+		return (1);
+	while (temp->next)
+	{
+		if (temp->data > temp->next->data)
+			return (0);
+		temp = temp->next;
+	}
+	return (1);
+}
+
+//so this function check the stack if its sorted i
+//in ascendingored || descending order
 // 
 // int sortchecker(t_stack *stack)
 // {
@@ -77,7 +105,6 @@ int is_space(char *argv)// checker if they are any space in the input argv
 // 	temp = stack;
 // 	asc_o = 1;
 // 	dsc_o = 1;
-	
 // 	if (!stack || !stack->next)
 // 		return 0;
 // 	while (temp->next) // check if temp its ascending or descendin
@@ -93,19 +120,19 @@ int is_space(char *argv)// checker if they are any space in the input argv
 // 	if (!asc_o && dsc_o)
 // 		return -1; // list its sorted in DESCENDING ORDER
 // 	return 0;
-// }
-int sortchecker(t_stack *stack)
-{
-	t_stack *temp;
-	temp = stack;
+// // }
+// int sortchecker(t_stack *stack)
+// {
+// 	t_stack *temp;
+// 	temp = stack;
 
-	if (!stack || !stack->next)
-		return (1);
-	while (temp->next)
-	{
-		if (temp->data > temp->next->data )
-			return (0);
-		temp = temp->next;
-	}
-	return (1);
-}
+// 	if (!stack || !stack->next)
+// 		return (1);
+// 	while (temp->next)
+// 	{
+// 		if (temp->data > temp->next->data )
+// 			return (0);
+// 		temp = temp->next;
+// 	}
+// 	return (1);
+// }

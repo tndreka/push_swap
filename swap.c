@@ -6,16 +6,16 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 15:02:45 by tndreka           #+#    #+#             */
-/*   Updated: 2024/06/02 21:44:38 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/06/10 20:51:53 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 //swap function
-static void swap(t_stack **root)
+static	void	swap(t_stack **root)
 {
-	t_stack *swap_first_node;
-	t_stack *swap_second_node;
+	t_stack	*swap_first_node;
+	t_stack	*swap_second_node;
 
 	if (*root == NULL || (*root)->next == NULL)
 		return ;
@@ -23,19 +23,22 @@ static void swap(t_stack **root)
 	swap_second_node = (*root)->next;
 	swap_first_node->next = swap_second_node->next;
 	swap_second_node->next = swap_first_node;
-	(*root)= swap_second_node;
+	(*root) = swap_second_node;
 }
-void sa(t_stack **a)
+
+void	sa(t_stack **a)
 {
 	swap(a);
 	ft_printf("sa\n");
 }
-void sb(t_stack **b)
+
+void	sb(t_stack **b)
 {
 	swap(b);
 	ft_printf("sb\n");
 }
-void ss(t_stack **a, t_stack **b)
+
+void	ss(t_stack **a, t_stack **b)
 {
 	swap(a);
 	swap(b);
@@ -48,8 +51,6 @@ void ss(t_stack **a, t_stack **b)
 // 	node->next = NULL;
 // 	return node;
 // }
-
-
 // #include <stdio.h>
 // int main()
 // {
@@ -74,8 +75,7 @@ void ss(t_stack **a, t_stack **b)
 // 	{
 // 		printf("%d\n", temp2->data);
 // 		temp2 = temp2->next;
-// 	}
-		
+// 	}		
 // 	//here we print stack A after function swap a
 // 	sa(&a);
 // 	t_stack *temp3 = a;

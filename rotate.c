@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 14:58:07 by tndreka           #+#    #+#             */
-/*   Updated: 2024/06/02 21:44:09 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/06/10 20:26:53 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 // rotate functtion
 static	void	rotate(t_stack **stack)
 {
-	t_stack *first_node;
-	t_stack *last_node;
+	t_stack	*first_node;
+	t_stack	*last_node;
+
 	if (*stack == NULL || (*stack)->next == NULL)
 		return ;
 	first_node = *stack;
@@ -24,17 +25,20 @@ static	void	rotate(t_stack **stack)
 	first_node->next = NULL;
 	last_node->next = first_node;
 }
-void ra(t_stack **a)
+
+void	ra(t_stack **a)
 {
 	rotate(a);
 	ft_printf("ra\n");
 }
-void rb(t_stack **b)
+
+void	rb(t_stack **b)
 {
 	rotate(b);
 	ft_printf("rb\n");
 }
-void rr(t_stack **a, t_stack **b)
+
+void	rr(t_stack **a, t_stack **b)
 {
 	rotate(a);
 	rotate(b);
@@ -72,7 +76,6 @@ void rr(t_stack **a, t_stack **b)
 //         printf("%d\n", temp2->data);
 //         temp2 = temp2->next;
 //     }
-        
 //     //here we print stack A after function swap a
 //     ra(&a);
 //     t_stack *temp3 = a;

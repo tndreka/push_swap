@@ -6,34 +6,34 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 14:58:04 by tndreka           #+#    #+#             */
-/*   Updated: 2024/06/02 21:42:04 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/06/10 20:25:03 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 //this function pushes one element in one stack to another 
-static void push(t_stack **dst, t_stack **src)
+static	void	push(t_stack **dst, t_stack **src)
 {
-	t_stack *push_node;
+	t_stack	*push_node;
+
 	if (*src == NULL)
 		return ;
 	push_node = (*src);
 	(*src)->next = (*src);
-	// push_node->next = (*src);
 	*dst = push_node;
 	push_node->next = *dst;
 	*src = push_node;
-}	
+}
 
-void pa(t_stack **a, t_stack **b)
+void	pa(t_stack **a, t_stack **b)
 {
-	push(b,a);
+	push(b, a);
 	ft_printf("pa\n");
 }
 
-void pb(t_stack **a, t_stack **b)
+void	pb(t_stack **a, t_stack **b)
 {
-	push(a,b);
+	push(a, b);
 	ft_printf("pb\n");
 }
 // t_stack *create_node(int value)
@@ -43,8 +43,6 @@ void pb(t_stack **a, t_stack **b)
 // 	node->next = NULL;
 // 	return node;
 // }
-
-
 // #include <stdio.h>
 // int main()
 // {
@@ -69,8 +67,7 @@ void pb(t_stack **a, t_stack **b)
 // 	{
 // 		printf("%d\n", temp2->data);
 // 		temp2 = temp2->next;
-// 	}
-		
+// 	}	
 // 	//here we print stack A after function swap a
 // 	pa(&b, &a);
 // 	// pa(&b, &a);
