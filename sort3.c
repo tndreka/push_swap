@@ -6,14 +6,14 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:55:08 by tndreka           #+#    #+#             */
-/*   Updated: 2024/06/10 20:33:19 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/06/18 23:19:51 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 // sorting 3 numbers
 
-t_stack	*sort_three(t_stack *stack)
+void	sort_three(t_stack *stack)
 {
 	if (stack->data > stack->next->data
 		&&stack->next->data < stack->next->next->data // 2 > 1 < 3
@@ -40,5 +40,4 @@ t_stack	*sort_three(t_stack *stack)
 		rra(&stack);
 		sa(&stack);
 	}
-	return (stack);
 }

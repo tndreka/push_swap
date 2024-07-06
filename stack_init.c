@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 16:39:23 by tndreka           #+#    #+#             */
-/*   Updated: 2024/06/10 20:52:56 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/06 13:18:57 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,4 +53,18 @@ t_stack	*listmaker(t_stack *stack, char **str)
 		len--;
 	}
 	return (stack);
+}
+
+// this creates node
+t_stack	*create_node(int value, t_stack *stack)
+{
+	t_stack	*node;
+
+	node = (t_stack *) malloc (sizeof(t_stack));
+	if (! node)
+		return (NULL);
+	node->data = value;
+	node->next = stack;
+	stack = node;
+	return (node);
 }

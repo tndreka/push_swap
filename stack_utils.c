@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 21:54:46 by tndreka           #+#    #+#             */
-/*   Updated: 2024/06/10 20:52:22 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/06 13:23:03 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,53 +47,6 @@ t_stack	*get_last_before(t_stack *stack)
 	return (stack);
 }
 
-// this creates node
-t_stack	*create_node(int value, t_stack *stack)
-{
-	t_stack	*node;
-
-	node = (t_stack *) malloc (sizeof(t_stack));
-	if (! node)
-		return (NULL);
-	node->data = value;
-	node->next = stack;
-	stack = node;
-	return (node);
-}
-
-// checker if they are any space in the input argv
-int	is_space(char *argv)
-{
-	int	i;
-
-	i = 0;
-	if (!argv)
-		return (1);
-	while (argv[i])
-	{
-		if (argv[i] == 32)
-			return (1);
-		i++;
-	}
-	return (0);
-}
-
-int	sortchecker(t_stack *stack)
-{
-	t_stack	*temp;
-
-	temp = stack;
-	if (!stack || !stack->next)
-		return (1);
-	while (temp->next)
-	{
-		if (temp->data > temp->next->data)
-			return (0);
-		temp = temp->next;
-	}
-	return (1);
-}
-
 //so this function check the stack if its sorted i
 //in ascendingored || descending order
 // 
@@ -121,18 +74,12 @@ int	sortchecker(t_stack *stack)
 // 		return -1; // list its sorted in DESCENDING ORDER
 // 	return 0;
 // // }
-// int sortchecker(t_stack *stack)
-// {
-// 	t_stack *temp;
-// 	temp = stack;
-
-// 	if (!stack || !stack->next)
-// 		return (1);
-// 	while (temp->next)
-// 	{
-// 		if (temp->data > temp->next->data )
-// 			return (0);
-// 		temp = temp->next;
-// 	}
-// 	return (1);
-// }
+void printstack(t_stack *stack)
+{
+	t_stack *current = stack;
+	while (current)
+	{
+		ft_printf("%d->", current->data);
+		current = current->next;
+	}
+}

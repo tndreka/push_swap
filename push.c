@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 14:58:04 by tndreka           #+#    #+#             */
-/*   Updated: 2024/06/10 20:25:03 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/06 18:37:58 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,21 +19,20 @@ static	void	push(t_stack **dst, t_stack **src)
 	if (*src == NULL)
 		return ;
 	push_node = (*src);
-	(*src)->next = (*src);
-	*dst = push_node;
+	(*src) = (*src)->next;
 	push_node->next = *dst;
-	*src = push_node;
+	*dst = push_node;
 }
 
 void	pa(t_stack **a, t_stack **b)
 {
-	push(b, a);
+	push(a, b);
 	ft_printf("pa\n");
 }
 
 void	pb(t_stack **a, t_stack **b)
 {
-	push(a, b);
+	push(b, a);
 	ft_printf("pb\n");
 }
 // t_stack *create_node(int value)
