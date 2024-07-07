@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 14:58:04 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/06 18:37:58 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/08 00:16:18 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	pa(t_stack **a, t_stack **b)
 	ft_printf("pa\n");
 }
 
-void	pb(t_stack **a, t_stack **b)
+void	pb(t_stack **b, t_stack **a)
 {
 	push(b, a);
 	ft_printf("pb\n");

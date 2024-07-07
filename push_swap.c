@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:40:34 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/06 15:39:22 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/08 00:49:09 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	main(int argc, char **argv)
 	else if (!sortchecker(a))
 	{
 		if (len_stack(a) == 3)
-			sort_three(a);
+			sort_three(&a);
 		else if (len_stack(a) == 5)
 		{
 			sort(&a, &b);

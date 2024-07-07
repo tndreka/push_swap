@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 22:50:41 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/06 15:40:19 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/08 00:48:52 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void		rr(t_stack **a, t_stack **b);
 void		rra(t_stack **a);
 void		rrb(t_stack **b);
 void		rrr(t_stack **a, t_stack **b);
-void		sort_three(t_stack *stack);
+void		sort_three(t_stack **stack);
 void		sort(t_stack **a, t_stack **b);
 //For test
 void		printstack(t_stack *stack);

@@ -6,38 +6,38 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:55:08 by tndreka           #+#    #+#             */
-/*   Updated: 2024/06/18 23:19:51 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/08 01:02:44 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 // sorting 3 numbers
 
-void	sort_three(t_stack *stack)
+void	sort_three(t_stack **stack)
 {
-	if (stack->data > stack->next->data
-		&&stack->next->data < stack->next->next->data // 2 > 1 < 3
-		&& stack->data < stack->next->next->data)
-		sa(&stack);
-	else if (stack->data > stack->next->data //  3 > 2 > 1
-		&& stack->next->data > stack->next->next->data)
+	if ((*stack)->data > (*stack)->next->data
+		&&(*stack)->next->data < (*stack)->next->next->data // 2 > 1 < 3
+		&& (*stack)->data < (*stack)->next->next->data)
+		sa(stack);
+	else if ((*stack)->data > (*stack)->next->data //  3 > 2 > 1
+		&& (*stack)->next->data > (*stack)->next->next->data)
 	{
-		sa(&stack);
-		rra(&stack);
+		sa(stack);
+		rra(stack);
 	}
-	else if (stack->data > stack->next->data
-		&&stack->next->data < stack->next->next->data //3 > 1 <2
-		&& stack->data > stack->next->next->data)
-		ra(&stack);
-	else if (stack->data < stack->next->data
-		&& stack->next->data > stack->next->next->data // 2 < 3 > 1 
-		&& stack->data > stack->next->next->data)
-		rra(&stack);
-	else if (stack->data < stack->next->data
-		&& stack->next->data > stack->next->next->data && // 1 > 3 > 2
-		stack->data < stack->next->next->data)
+	else if ((*stack)->data > (*stack)->next->data
+		&&(*stack)->next->data < (*stack)->next->next->data //3 > 1 <2
+		&& (*stack)->data > (*stack)->next->next->data)
+		ra(stack);
+	else if ((*stack)->data < (*stack)->next->data
+		&& (*stack)->next->data > (*stack)->next->next->data // 2 < 3 > 1 
+		&& (*stack)->data > (*stack)->next->next->data)
+		rra(stack);
+	else if ((*stack)->data < (*stack)->next->data
+		&& (*stack)->next->data > (*stack)->next->next->data && // 1 > 3 > 2
+		(*stack)->data < (*stack)->next->next->data)
 	{
-		rra(&stack);
-		sa(&stack);
+		rra(stack);
+		sa(stack);
 	}
 }
