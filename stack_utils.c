@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 21:54:46 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/06 13:23:03 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/08 01:29:59 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,15 @@ t_stack	*get_last_before(t_stack *stack)
 	return (stack);
 }
 
+void printstack(t_stack *stack)
+{
+	t_stack *current = stack;
+	while (current)
+	{
+		ft_printf("%d->", current->data);
+		current = current->next;
+	}
+}
 //so this function check the stack if its sorted i
 //in ascendingored || descending order
 // 
@@ -74,12 +83,3 @@ t_stack	*get_last_before(t_stack *stack)
 // 		return -1; // list its sorted in DESCENDING ORDER
 // 	return 0;
 // // }
-void printstack(t_stack *stack)
-{
-	t_stack *current = stack;
-	while (current)
-	{
-		ft_printf("%d->", current->data);
-		current = current->next;
-	}
-}

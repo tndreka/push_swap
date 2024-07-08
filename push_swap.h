@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 22:50:41 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/08 00:48:52 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/08 12:17:58 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,6 @@
 typedef struct s_stack
 {
 	int							data;
-	int							index;
-	int							position;
-	int							target;
 	struct s_stack				*next;
 }				t_stack;
 //OPERATIONS
@@ -43,8 +40,10 @@ void		rr(t_stack **a, t_stack **b);
 void		rra(t_stack **a);
 void		rrb(t_stack **b);
 void		rrr(t_stack **a, t_stack **b);
+//Sort 3 & 5 numbers
 void		sort_three(t_stack **stack);
-void		sort(t_stack **a, t_stack **b);
+void		sort_five(t_stack **a, t_stack **b);
+void 		fullsort(t_stack **a, t_stack **b);
 //For test
 void		printstack(t_stack *stack);
 //Create Stack
