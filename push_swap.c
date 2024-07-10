@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:40:34 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/08 03:33:19 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/10 19:16:37 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,11 @@
 
 int	main(int argc, char **argv)
 {
-	t_stack	*a = NULL;
-	t_stack	*b = NULL;
+	t_stack	*a;
+	t_stack	*b;
 
+	a = NULL;
+	b = NULL;
 	if (argc == 1)
 		return (0);
 	else if (argument_checker(argv))
@@ -36,17 +38,8 @@ int	main(int argc, char **argv)
 		ft_printf("Error\n");
 		return (1);
 	}
-	if (sortchecker(a))
-		return (0);
-	else if (!sortchecker(a))
-	{
-		if (len_stack(a) == 3)
-			sort_three(&a);
-		else if (len_stack(a) == 5)
-			sort_five	(&a, &b);
-		else
-			fullsort(&a, &b);
-	}
-	return (0);
+	if (!sortchecker(a))
+		push_swap(&a, &b);
+	return 0;
 }
 

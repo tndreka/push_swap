@@ -6,67 +6,72 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 16:46:12 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/08 20:23:51 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/10 21:02:07 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include <limits.h>
 
-int	stackmin(t_stack *stack)
+/* This function set the index of the stacks*/
+void set_index(t_stack **stack)
 {
-	int	min;
+	int	i;
+	t_stack	*temp;
 
-	min = INT_MAX;
-	while (stack != NULL)
+	i = 0;
+	temp = *stack;
+	while(temp)
 	{
-		if (stack->data < min)
-			min = stack->data;
-		stack = stack->next;
+		temp->index = i;
+		temp->after_middle = false;
+		if (middle_check (temp, i))
+			temp->after_middle = true;
+		i++;
+		temp = temp->next;
 	}
-	return (min);
 }
 
-int chunk_calculator(t_stack **stack)
+void	set_match(int	match, t_stack	*tmp_a, t_stack	**b)
 {
-	int	len;
-	int chunk1 = 5;
-	int chunk2 = 11;
-	int sizeofchunk = 0;
-	len = len_stack(*stack);
-	if (len == 100)
-		sizeofchunk = len / chunk1;
-	else if (len == 500) 
-		sizeofchunk = len / chunk2;
-	return sizeofchunk;
-}
-
-t_stack *chunk_creator(t_stack **stack)
-{
-	t_stack *current = 	*stack;
-	t_stack **chunks;
-	t_stack *chunck_head;
-	t_stack *chunk_tail;
-	int sizeofchunk = chunk_calculator(stack);
-	int i ;
-
-	chunks = (t_stack **)malloc( len_stack(*stack) * len_stack(*stack) / sizeofchunk + 1);
-	if (chunks == NULL)
-		return (free(chunks), NULL);
-	while (current)
+	if(tmp_a->data < match && tmp_a->data > (*b)->data )
 	{
-		i = 0;
-		chunck_head = current;
-		chunk_tail = NULL;
-		while (current && i < sizeofchunk)
-		{	
-			chunk_tail = current;
-			current = current->next;
-			i++;
+		match = tmp_a->data;
+		(*b)->target_index = tmp_a->index;
+	}
+}
+
+/*this function loop on the unsorted stack and for each node sets a target node on where it should go on stack a*/
+void set_target(t_stack **a, t_stack **b)
+{
+	t_stack *tmp_a;
+	int		match;
+	t_stack *tmp;
+
+	tmp = *b;
+	while (*b)
+	{
+		match = INT_MAX;
+		tmp_a = *a;
+		while (tmp_a)
+		{
+			set_match(&match, tmp_a, b);
+			tmp_a = tmp_a->next;
 		}
-		if (chunk_tail != NULL)
-			chunk_tail -> next = NULL;
-		chunks[i++] = chunck_head;
+		if (match == INT_MAX)
+			(*b)->target_index = (stackmin(*a));
+		(*b) = (*b)->next;
 	}
-	return *chunks;	
+	*b = tmp;
+}
+
+/* This function check if the current index on the stacj is after the middle */
+bool middle_check(t_stack **stack, int i)
+{
+	int len;
+	int middle;
+	len = len_stack(*stack);
+	middle = len / 2;
+	
+	return (i > middle);
 }

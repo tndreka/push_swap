@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort3.c                                            :+:      :+:    :+:   */
+/*   sort_trick_to_5.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:55:08 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/08 01:02:44 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/10 19:18:12 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,4 +40,40 @@ void	sort_three(t_stack **stack)
 		rra(stack);
 		sa(stack);
 	}
+}
+void sort_for(t_stack **a, t_stack **b)
+{
+		int min1;
+	while (len_stack(*a) > 3)
+	{
+		min1 = stackmin(*a);
+		if ((*a)-> data == min1)
+			pb(b, a);
+		else
+			ra(a);
+	}
+	sort_three(a);
+	while (len_stack(*b) > 0)
+	{
+		pa(a, b);
+	}
+// 	printstack(*a);
+}
+void sort_five(t_stack **a, t_stack **b)
+{
+		int min1;
+	while (len_stack(*a) > 3)
+	{
+		min1 = stackmin(*a);
+		if ((*a)-> data == min1)
+			pb(b, a);
+		else
+			ra(a);
+	}
+	sort_three(a);
+	while (len_stack(*b) > 0)
+	{
+		pa(a, b);
+	}
+// 	printstack(*a);
 }

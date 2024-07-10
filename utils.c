@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 16:20:54 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/06 13:21:14 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/10 21:03:56 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,4 +70,18 @@ int	is_space(char *argv)
 		i++;
 	}
 	return (0);
+}
+
+int	stackmin(t_stack *stack)
+{
+	int	min;
+
+	min = INT_MAX;
+	while (stack != NULL)
+	{
+		if (stack->data < min)
+			min = stack->data;
+		stack = stack->next;
+	}
+	return (min);
 }

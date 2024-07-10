@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 03:33:31 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/08 03:41:55 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/10 21:04:45 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,36 @@
 
 void fullsort(t_stack **a, t_stack **b)
 {
-	int min;
-	while (len_stack(*a) > 3)
+// 	int min1;
+	while(len_stack(*a) > 3)
 	{
-		min = stackmin(*a);
-		if((*a)->data == min)
-			pb(b, a);
-		else
+		if (stackmin(*a))
 			ra(a);
+		else
+			pb(b, a);
 	}
 	sort_three(a);
-	while (len_stack(*b) > 0)
+	while ((*b) != NULL)
 	{
-		pa(a, b);
+		set_index(*a);
+		set_index(*b);
+		set_target(*a, *b);
 	}
 }
+
+void push_swap(t_stack **a, t_stack **b)
+{
+
+		if(len_stack(*a) == 2)
+			sa(a);
+		else if(len_stack(*a) == 3)
+			sort_three(a);
+		else if(len_stack(*a) == 4)
+			sort_for(a, b);
+		else if(len_stack(*a) == 5)
+			sort_five(a, b);
+		else
+			fullsort(a, b);			 
+		printstack(*a);
+}
+
