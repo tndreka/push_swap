@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:40:34 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/10 19:16:37 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/11 20:48:19 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,5 @@ int	main(int argc, char **argv)
 	}
 	if (!sortchecker(a))
 		push_swap(&a, &b);
-	return 0;
+	return (0);
 }
-

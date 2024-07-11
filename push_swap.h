@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 22:50:41 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/10 20:30:39 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/12 01:13:43 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,17 @@ void		rrr(t_stack **a, t_stack **b);
 //Sort 3 4 5 numbers
 void		sort_three(t_stack **stack);
 void		sort_five(t_stack **a, t_stack **b);
-void 		sort_for(t_stack **a, t_stack **b);
+void		sort_for(t_stack **a, t_stack **b);
 //Sort algo
-void 		push_swap(t_stack **a, t_stack **b);
+void		push_swap(t_stack **a, t_stack **b);
 void		fullsort(t_stack **a, t_stack **b);
 //helper function for algo
-void set_index(t_stack **stack);
-void set_target(t_stack **a, t_stack **b);
-bool middle_check(t_stack **stack);
-void get_price(t_stack **a, t_stack **b);
-bool get_cheap( t_stack **b);
+void		set_index(t_stack **stack);
+void		set_target(t_stack **a, t_stack **b);
+bool		middle_check(t_stack **stack, int i);
+void		get_price(t_stack **a, t_stack **b, int len_a, int len_b);
+bool		get_cheap( t_stack **b);
+int			after_mid(int index, int len);
 //For test
 void		printstack(t_stack *stack);
 //Create Stack
