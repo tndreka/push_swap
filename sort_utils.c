@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 16:46:12 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/12 01:07:05 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/12 02:51:46 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	set_index(t_stack **stack)
 
 void	set_match(int *match, t_stack *tmp_a, t_stack **b)
 {
-	if (tmp_a->data < match && tmp_a->data > (*b)->data)
+	if (tmp_a->data < *match && tmp_a->data > (*b)->data)
 	{
 		*match = tmp_a->data;
 		(*b)->target_index = tmp_a->index;
@@ -110,34 +110,34 @@ int	after_mid(int index, int len)
 	return (2 * index >= len);
 }
 
-void	get_price(t_stack *a, t_stack *b, int len_a, int len_b)
+void	get_price(t_stack **a, t_stack **b, int len_a, int len_b)
 {
 	t_stack	*current_b;
 
-	current_b = b;
+	current_b = *b;
 	while (current_b)
 	{
-		if (!after_mid(b->target_index, len_a) && !current_b->after_middle)
+		if (!after_mid((*b)->target_index, len_a) && !current_b->after_middle)
 		{
 			current_b->price = current_b->index;
-			if (a->index > current_b->index)
-				current_b->price = a->index;
+			if ((*a)->index > current_b->index)
+				current_b->price = (*a)->index;
 		}
-		else if (after_mid(b->target_index, len_a) && current_b->after_middle)
+		else if (after_mid((*b)->target_index, len_a) && current_b->after_middle)
 		{
 			current_b->price = len_b - current_b->index;
-			if ((len_a - a->index) > (len_b - current_b->index))
-				current_b->price = len_a - a->index;
+			if ((len_a - (*a)->index) > (len_b - current_b->index))
+				current_b->price = len_a - (*a)->index;
 		}
 		else
 		{
 			current_b->price = current_b->index;
 			if (current_b->after_middle)
 				current_b->price = len_b - current_b->index;
-			if (after_mid(b->target_index, len_a))
-				current_b->price += len_a - a->index;
+			if (after_mid((*b)->target_index, len_a))
+				current_b->price += len_a - (*a)->index;
 			else
-				current_b->price += a->index;
+				current_b->price += (*a)->index;
 		}
 		current_b = current_b->next;
 	}

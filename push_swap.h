@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 22:50:41 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/12 01:13:43 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/12 02:42:41 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ bool		middle_check(t_stack **stack, int i);
 void		get_price(t_stack **a, t_stack **b, int len_a, int len_b);
 bool		get_cheap( t_stack **b);
 int			after_mid(int index, int len);
+t_stack 	*cheap_node(t_stack **stack);
+void		move_to_a(t_stack **a, t_stack **b);
 //For test
 void		printstack(t_stack *stack);
 //Create Stack

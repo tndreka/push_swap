@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 16:20:54 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/12 00:43:09 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/12 04:03:54 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,3 +85,48 @@ int	stackmin(t_stack *stack)
 	}
 	return (min);
 }
+
+bool	see_cheap(t_stack **b)
+{
+	int			match_data;
+	t_stack		*match;
+
+	match_data = INT_MAX;
+	while (*b)
+	{
+		if ((*b)->price < match_data)
+		{
+			match_data = (*b)->price;
+			match = (*b);
+			return (true);
+		}
+		(*b) = (*b)->next;
+	}
+	return (false);
+}
+
+t_stack *cheap_node(t_stack **b)
+{
+	int			match_data;
+	t_stack		*match;
+
+	match_data = INT_MAX;
+	match = NULL;
+	while (*b)
+	{
+		if ((*b)->price < match_data)
+		{
+			match_data = (*b)->price;
+			match = (*b);
+		}
+		(*b) = (*b)->next;
+	}
+	return (match);
+}
+	// while (*stack)
+	// {
+	// 	if ((*stack)->cheap)
+	// 		return (*stack);
+	// 	(*stack) = (*stack)->next;
+	// }
+	// return (*stack);
