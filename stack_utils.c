@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 21:54:46 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/12 00:34:59 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/12 20:45:29 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,8 @@ t_stack	*get_last_before(t_stack *stack)
 
 void	printstack(t_stack *stack)
 {
-	t_stack	*current;
+	t_stack	*current = NULL;
 
-	current = NULL;
 	*current = *stack;
 	while (current)
 	{

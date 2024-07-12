@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 03:33:31 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/12 14:07:57 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/12 20:50:16 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,9 @@ void	fullsort(t_stack **a, t_stack **b)
 {
 	int		len_of_a;
 	int		len_of_b;
-
+	int		min;
+	t_stack *mini;
+	
 	while (len_stack(*a) > 3)
 	{
 		// if (stackmin(*a))
@@ -35,7 +37,39 @@ void	fullsort(t_stack **a, t_stack **b)
 		get_price(a, b, len_of_a, len_of_b);
 		move_to_a(a, b);
 	}
-}
+	//len_of_a = len_stack(*a);
+	// while (!sortchecker(*a))
+	// {
+	// 	if(after_mid((*a)->index, len_stack(*a)))
+	// 		ra(a);
+	// 	else
+	// 		rra(a);
+	// }
+	min = stackmin(*a);
+	mini = (*a);
+	while(mini)
+	{
+		if(mini->data == min)
+			break ;
+		mini = mini->next;
+	}
+		if(after_mid(mini->index, len_stack(*a)))
+	 	{
+			while ((*a)->data != mini->data)	
+				rra(a);
+		}		
+		else
+		{ 
+			while ((*a)->data != mini->data)		
+				ra(a);
+		}
+		while (*a)
+		{
+			printf("%d->\n", (*a)->data);
+			(*a) = (*a)->next;
+		}
+	}
+	
 
 void	push_swap(t_stack **a, t_stack **b)
 {
@@ -43,10 +77,10 @@ void	push_swap(t_stack **a, t_stack **b)
 		sa(a);
 	else if (len_stack(*a) == 3)
 		sort_three(a);
-	else if (len_stack(*a) == 4)
-		sort_for(a, b);
-	else if (len_stack(*a) == 5)
-		sort_five(a, b);
+	// else if (len_stack(*a) == 4)
+	// 	sort_for(a, b);
+	// else if (len_stack(*a) == 5)
+	// 	sort_five(a, b);
 	else
 		fullsort(a, b);
 }
