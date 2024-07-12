@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 16:20:54 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/12 04:03:54 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/12 14:01:20 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,15 +75,20 @@ int	is_space(char *argv)
 int	stackmin(t_stack *stack)
 {
 	int	min;
+	int index;
 
+	index = 0;
 	min = INT_MAX;
 	while (stack != NULL)
 	{
 		if (stack->data < min)
+		{
 			min = stack->data;
+			index = stack->index;
+		}
 		stack = stack->next;
 	}
-	return (min);
+	return (index);
 }
 
 bool	see_cheap(t_stack **b)
@@ -105,21 +110,23 @@ bool	see_cheap(t_stack **b)
 	return (false);
 }
 
-t_stack *cheap_node(t_stack **b)
+t_stack *cheap_node(t_stack **stack)
 {
 	int			match_data;
 	t_stack		*match;
+	t_stack		*b;
 
+	b = *stack;
 	match_data = INT_MAX;
 	match = NULL;
-	while (*b)
+	while (b)
 	{
-		if ((*b)->price < match_data)
+		if ((b)->price < match_data)
 		{
-			match_data = (*b)->price;
-			match = (*b);
+			match_data = b->price;
+			match = (b);
 		}
-		(*b) = (*b)->next;
+		b = (b)->next;
 	}
 	return (match);
 }

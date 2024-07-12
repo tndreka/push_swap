@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 16:46:12 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/12 02:51:46 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/12 14:08:03 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ void	set_match(int *match, t_stack *tmp_a, t_stack **b)
 {
 	if (tmp_a->data < *match && tmp_a->data > (*b)->data)
 	{
+		// printf("Updating match: %d -> %d, target index: %d\n", *match, tmp_a->data, tmp_a->index);
 		*match = tmp_a->data;
 		(*b)->target_index = tmp_a->index;
 	}
@@ -60,6 +61,7 @@ void	set_target(t_stack **a, t_stack **b)
 		}
 		if (match == INT_MAX)
 			(*b)->target_index = (stackmin(*a));
+		// printf("Node data: %d, target index: %d\n", (*b)->data, (*b)->target_index);
 		(*b) = (*b)->next;
 	}
 	*b = tmp;
