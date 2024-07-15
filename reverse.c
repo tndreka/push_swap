@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 21:26:44 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/04 18:27:59 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/15 02:03:00 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static	void	reverse(t_stack **stack)
 	last_node = get_last_node(*stack);
 	last_before = get_last_before(*stack);
 	*stack = last_node;
+	// if (last_before)
 	last_before->next = NULL;
 	last_node->next = first_node;
 }

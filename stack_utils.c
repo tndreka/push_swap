@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 21:54:46 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/12 20:45:29 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/14 21:47:31 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,25 @@ t_stack	*get_last_before(t_stack *stack)
 	return (stack);
 }
 
-void	printstack(t_stack *stack)
+t_stack	*cheap_node(t_stack **stack)
 {
-	t_stack	*current = NULL;
+	int			match_data;
+	t_stack		*match;
+	t_stack		*b;
 
-	*current = *stack;
-	while (current)
+	b = *stack;
+	match_data = INT_MAX;
+	match = NULL;
+	while (b)
 	{
-		ft_printf("%d->", current->data);
-		current = current->next;
+		if ((b)->price < match_data)
+		{
+			match_data = b->price;
+			match = (b);
+		}
+		b = (b)->next;
 	}
+	return (match);
 }
 //so this function check the stack if its sorted i
 //in ascendingored || descending order

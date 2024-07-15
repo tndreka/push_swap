@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:55:08 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/10 19:18:12 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/14 21:51:07 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	sort_three(t_stack **stack)
 {
 	if ((*stack)->data > (*stack)->next->data
-		&&(*stack)->next->data < (*stack)->next->next->data // 2 > 1 < 3
+		&& (*stack)->next->data < (*stack)->next->next->data // 2 > 1 < 3
 		&& (*stack)->data < (*stack)->next->next->data)
 		sa(stack);
 	else if ((*stack)->data > (*stack)->next->data //  3 > 2 > 1
@@ -26,7 +26,7 @@ void	sort_three(t_stack **stack)
 		rra(stack);
 	}
 	else if ((*stack)->data > (*stack)->next->data
-		&&(*stack)->next->data < (*stack)->next->next->data //3 > 1 <2
+		&& (*stack)->next->data < (*stack)->next->next->data //3 > 1 <2
 		&& (*stack)->data > (*stack)->next->next->data)
 		ra(stack);
 	else if ((*stack)->data < (*stack)->next->data
@@ -41,9 +41,11 @@ void	sort_three(t_stack **stack)
 		sa(stack);
 	}
 }
-void sort_for(t_stack **a, t_stack **b)
+
+void	sort_for(t_stack **a, t_stack **b)
 {
-		int min1;
+	int	min1;
+
 	while (len_stack(*a) > 3)
 	{
 		min1 = stackmin(*a);
@@ -57,11 +59,12 @@ void sort_for(t_stack **a, t_stack **b)
 	{
 		pa(a, b);
 	}
-// 	printstack(*a);
 }
-void sort_five(t_stack **a, t_stack **b)
+
+void	sort_five(t_stack **a, t_stack **b)
 {
-		int min1;
+	int	min1;
+
 	while (len_stack(*a) > 3)
 	{
 		min1 = stackmin(*a);
@@ -75,5 +78,4 @@ void sort_five(t_stack **a, t_stack **b)
 	{
 		pa(a, b);
 	}
-// 	printstack(*a);
 }

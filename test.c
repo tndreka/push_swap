@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 20:13:23 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/11 20:48:50 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/15 02:48:16 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,3 +27,4 @@
 // 		*stack = (*stack)->next;
 // 	}		
 // }
+$>ARG="<100 random values>"; ./push_swap $ARG | ./checker_OS $ARG

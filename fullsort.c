@@ -6,28 +6,27 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 03:33:31 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/12 20:50:16 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/15 05:12:27 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+
 void	fullsort(t_stack **a, t_stack **b)
 {
-	int		len_of_a;
-	int		len_of_b;
-	int		min;
-	t_stack *mini;
-	
-	while (len_stack(*a) > 3)
+	int	len_of_a;
+	int	len_of_b;
+
+	while (len_stack(*a) > 3 && !sortchecker(*a))
 	{
-		// if (stackmin(*a))
-		// 	ra(a);
-		//else
+		if (stackmin(*a))
+			ra(a);
+		else
 			pb(b, a);
 	}
 	sort_three(a);
-	while ((*b) != NULL)
+	while ((*b))
 	{
 		set_index(a);
 		set_index(b);
@@ -37,39 +36,7 @@ void	fullsort(t_stack **a, t_stack **b)
 		get_price(a, b, len_of_a, len_of_b);
 		move_to_a(a, b);
 	}
-	//len_of_a = len_stack(*a);
-	// while (!sortchecker(*a))
-	// {
-	// 	if(after_mid((*a)->index, len_stack(*a)))
-	// 		ra(a);
-	// 	else
-	// 		rra(a);
-	// }
-	min = stackmin(*a);
-	mini = (*a);
-	while(mini)
-	{
-		if(mini->data == min)
-			break ;
-		mini = mini->next;
-	}
-		if(after_mid(mini->index, len_stack(*a)))
-	 	{
-			while ((*a)->data != mini->data)	
-				rra(a);
-		}		
-		else
-		{ 
-			while ((*a)->data != mini->data)		
-				ra(a);
-		}
-		while (*a)
-		{
-			printf("%d->\n", (*a)->data);
-			(*a) = (*a)->next;
-		}
-	}
-	
+}
 
 void	push_swap(t_stack **a, t_stack **b)
 {
@@ -77,10 +44,10 @@ void	push_swap(t_stack **a, t_stack **b)
 		sa(a);
 	else if (len_stack(*a) == 3)
 		sort_three(a);
-	// else if (len_stack(*a) == 4)
-	// 	sort_for(a, b);
-	// else if (len_stack(*a) == 5)
-	// 	sort_five(a, b);
+	else if (len_stack(*a) == 4)
+		sort_for(a, b);
+	else if (len_stack(*a) == 5)
+		sort_five(a, b);
 	else
 		fullsort(a, b);
 }
@@ -88,45 +55,75 @@ void	push_swap(t_stack **a, t_stack **b)
 
 void	move_to_a(t_stack **a, t_stack **b)
 {
-	t_stack		*to_a;
-	int			a_index;
-	int			b_index;
+	t_stack	*to_a;
+	int		a_index;
+	int		b_index;
 
 	to_a = cheap_node(b);
 	a_index = 0;
 	if (to_a)
 		a_index = to_a->target_index;
 	b_index = to_a->index;
-	// printf("%d\t%d\n", a_index, b_index);
-	if (after_mid(a_index, len_stack(*a)) && to_a->after_middle)
+	if (len_stack(*b) > 2)
 	{
-		a_index = len_stack(*a) - a_index;
-		b_index = len_stack(*b) - b_index;
-		while (a_index && b_index)
+		if (after_mid(a_index, len_stack(*a)) && to_a->after_middle)
 		{
-			rrr(a, b);
-			a_index--;
-			b_index--;
+			a_index = len_stack(*a) - a_index;
+			b_index = len_stack(*b) - b_index;
+			while (a_index && b_index)
+			{
+				rrr(a, b);
+				a_index--;
+				b_index--;
+			}
+			while (a_index-- > 0)
+				rra(a);
+			while (b_index-- > 0)
+				rrb(b);
+			pa(a, b);
 		}
-		while (a_index-- > 0)
-			rra(a);
-		while (b_index-- > 0)
-			rrb(b);
-		pa(a, b);
-	}
-	else if (!(after_mid(a_index, len_stack(*a))) && (!to_a->after_middle))
-	{
-		while (a_index && b_index)
+		else if (!(after_mid(a_index, len_stack(*a))) && (!to_a->after_middle))
 		{
-			rr(a, b);
-			a_index--;
-			b_index--;
+			while (a_index && b_index)
+			{
+				rr(a, b);
+				a_index--;
+				b_index--;
+			}
+			while (a_index-- > 0)
+				ra(a);
+			while (b_index-- > 0)
+				rb(b);
+			pa(a, b);
 		}
-		while (a_index-- > 0)
-			ra(a);
-		while (b_index-- > 0)
-			rb(b);
-		pa(a, b);
+		else
+		{
+			if (after_mid(a_index, len_stack(*a)))
+			{
+				a_index = len_stack(*a) - a_index;
+				while (a_index-- > 0)
+					rra(a);
+			}
+			else
+			{
+				while (a_index-- > 0)
+					ra(a);
+			}
+			if (to_a->after_middle)
+			{
+				b_index = len_stack(*b) - b_index;
+				while (b_index-- > 0)
+				{
+					rrb(b);
+				}
+			}
+			else
+			{
+				while (b_index-- > 0)
+					rb(b);
+			}
+			pa(a, b);
+		}
 	}
 	else
 	{
@@ -141,19 +138,8 @@ void	move_to_a(t_stack **a, t_stack **b)
 			while (a_index-- > 0)
 				ra(a);
 		}
-		if (to_a->after_middle)
-		{
-			b_index = len_stack(*b) - b_index;
-			while (b_index-- > 0)
-			{
-				rrb(b);
-			}
-		}
-		else
-		{
-			while (b_index-- > 0)
-				rb(b);
-		}
-		pa(a, b);
+		if ((*b)->next && ((*b)->price > (*b)->next->price))
+			sb(b);
+		pa(a,b);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:40:34 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/11 20:48:19 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/15 05:12:57 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,12 @@
 */
 
 #include "push_swap.h"
+
+void	finish_sort(t_stack **a)
+{
+	while (!sortchecker(*a))
+		rra(a);
+}
 
 int	main(int argc, char **argv)
 {
@@ -40,5 +46,13 @@ int	main(int argc, char **argv)
 	}
 	if (!sortchecker(a))
 		push_swap(&a, &b);
+	if (!sortchecker(a))
+		finish_sort(&a);
+	while (a)
+	{
+		printf("%d\n",(a)->data);
+		(a) = (a)->next; 
+	}
+	
 	return (0);
 }
