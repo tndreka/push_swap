@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 22:50:41 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/12 02:42:41 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/15 15:26:39 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,5 +80,7 @@ int			check_duplicate(t_stack *stack);
 //Helper functions
 int			is_space(char *argv);
 long int	ft_atol(const char *str);
+
+void	free_all(t_stack **stack);
 
 #endif
