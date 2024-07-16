@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 21:54:46 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/14 21:47:31 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/16 16:33:27 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,30 +67,3 @@ t_stack	*cheap_node(t_stack **stack)
 	}
 	return (match);
 }
-//so this function check the stack if its sorted i
-//in ascendingored || descending order
-// 
-// int sortchecker(t_stack *stack)
-// {
-// 	t_stack *temp;
-// 	int asc_o;
-// 	int dsc_o;
-// 	temp = stack;
-// 	asc_o = 1;
-// 	dsc_o = 1;
-// 	if (!stack || !stack->next)
-// 		return 0;
-// 	while (temp->next) // check if temp its ascending or descendin
-// 	{
-// 		if (temp->data > temp->next->data)
-// 			dsc_o = 0;
-// 		if (temp->data < temp->next->data)
-// 			asc_o = 0;
-// 		temp = temp->next;
-// 	}
-// 	if (asc_o && !dsc_o)
-// 		return 1; //list its sorted in ASCENDING ORDER
-// 	if (!asc_o && dsc_o)
-// 		return -1; // list its sorted in DESCENDING ORDER
-// 	return 0;
-// // }

@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 22:50:41 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/15 15:26:39 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/16 20:56:15 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,42 +45,42 @@ void		rr(t_stack **a, t_stack **b);
 void		rra(t_stack **a);
 void		rrb(t_stack **b);
 void		rrr(t_stack **a, t_stack **b);
-//Sort 3 4 5 numbers
+//Sort 3 numbers
 void		sort_three(t_stack **stack);
-void		sort_five(t_stack **a, t_stack **b);
-void		sort_for(t_stack **a, t_stack **b);
 //Sort algo
 void		push_swap(t_stack **a, t_stack **b);
 void		fullsort(t_stack **a, t_stack **b);
+void		move_to_a(t_stack **a, t_stack **b);
+void		finish_sort(t_stack **a);
 //helper function for algo
 void		set_index(t_stack **stack);
-void		set_target(t_stack **a, t_stack **b);
 bool		middle_check(t_stack **stack, int i);
-void		get_price(t_stack **a, t_stack **b, int len_a, int len_b);
-bool		get_cheap( t_stack **b);
+void		set_target(t_stack **a, t_stack **b);
+void		set_match(int *match, t_stack *tmp_a, t_stack **b);
+void		get_price(t_stack **b, int len_a, int len_b);
+//bool		get_cheap( t_stack **b);
 int			after_mid(int index, int len);
-t_stack 	*cheap_node(t_stack **stack);
-void		move_to_a(t_stack **a, t_stack **b);
-//For test
-void		printstack(t_stack *stack);
-//Create Stack
-t_stack		*create_node(int value, t_stack *stack);
+//Create Stack - STACK INIT
 t_stack		*stackmaker(int argc, char **argv);
 t_stack		*listmaker(t_stack *stack, char **str);
-//Stack helper functions
+t_stack		*create_node(int value, t_stack *stack);
+//Stack helper functions - Stack UTILS
+int			len_stack(t_stack *stack);
 t_stack		*get_last_node(t_stack *stack);
 t_stack		*get_last_before(t_stack *stack);
-int			stackmin(t_stack *stack);
-int			len_stack(t_stack *stack);
-int			sortchecker(t_stack *stack);
-t_stack		*stacheap(t_stack *stack);
-//ERROR CHECKER
+t_stack		*cheap_node(t_stack **stack);
+//ERROR CHECKER -Stack Check
 int			argument_checker(char **argv);
 int			check_duplicate(t_stack *stack);
-//Helper functions
-int			is_space(char *argv);
+//Helper functions - UTILS
 long int	ft_atol(const char *str);
-
-void	free_all(t_stack **stack);
-
+int			sortchecker(t_stack *stack);
+int			stackmin(t_stack *stack);
+int			is_space(char *argv);
+void		free_all(t_stack **stack);
+/// 
+void handle_afteremidd(t_stack **a, t_stack **b, int a_index, int b_index);
+void handle_beforemidd(t_stack **a, t_stack **b, int a_index, int b_index);
+void handle_mix(t_stack **a, t_stack **b, t_stack *to_a ,int a_index, int b_index);
+void case_2(t_stack **a, t_stack **b, int a_index);
 #endif

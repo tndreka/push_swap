@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 16:39:23 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/15 15:25:53 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/16 16:25:49 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,13 +67,4 @@ t_stack	*create_node(int value, t_stack *stack)
 	node->next = stack;
 	stack = node;
 	return (node);
-}
-
-void	free_all(t_stack **stack)
-{
-	while (*stack)
-	{
-		free(*stack);
-		(*stack) = (*stack)->next;
-	}
 }

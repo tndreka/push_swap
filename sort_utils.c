@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 16:46:12 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/15 01:24:57 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/16 17:39:29 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,17 @@ void	set_index(t_stack **stack)
 		i++;
 		temp = temp->next;
 	}
+}
+
+/* This function check if the current index on the stacj is after the middle */
+bool	middle_check(t_stack **stack, int i)
+{
+	int	len;
+	int	middle;
+
+	len = len_stack(*stack);
+	middle = len / 2;
+	return (i > middle);
 }
 
 void	set_match(int *match, t_stack *tmp_a, t_stack **b)
@@ -66,81 +77,27 @@ void	set_target(t_stack **a, t_stack **b)
 	*b = tmp;
 }
 
-/* This function check if the current index on the stacj is after the middle */
-bool	middle_check(t_stack **stack, int i)
-{
-	int	len;
-	int	middle;
-
-	len = len_stack(*stack);
-	middle = len / 2;
-	return (i > middle);
-}
-
-// void	get_price(t_stack **a, t_stack **b, int len_a, int len_b)
-// {
-// 	while (*b)
-// 	{
-// 		if (!(*a)->after_middle && !(*b)->after_middle)
-// 		{
-// 			(*b)->price = (*b)->index;
-// 			if ((*a)->index > ((*b)->index))
-// 				(*b)->price = (*a)->index;
-// 		}
-// 		else if ((*a)->after_middle && (*b)->after_middle)
-// 		{
-// 			(*b)->price = len_b - (*b)->index;
-// 			if ((len_a - (*a)->index) > len_b - (*b)->index)n
-// 				(*b)->price = len_a - (*a)->index;
-// 		}
-// 		else
-// 		{
-// 			(*b)->price = (*b)->index;
-// 			if ((*b)->after_middle)
-// 				(*b)->price = len_b - (*b)->index;
-// 			if ((*a)->after_middle)
-// 				(*b)->price += len_a - (*a)->index;
-// 			else
-// 				(*b)->price += (*a)->index;
-// 		}
-// 	}
-// }
-
 int	after_mid(int index, int len)
 {
 	return (2 * index >= len);
 }
 
-void	get_price(t_stack **a, t_stack **b, int len_a, int len_b)
+void	get_price(t_stack **b, int len_a, int len_b)
 {
 	t_stack	*current_b;
-	(void)a;
+
 	current_b = *b;
 	while (current_b)
 	{
-		// if (!after_mid((*b)->target_index, len_a) && !current_b->after_middle)
 		if (!after_mid(current_b->target_index, len_a)
 			&& !current_b->after_middle)
-		{
 			current_b->price = current_b->index + current_b->target_index;
-			// if (current_b->target_index > current_b->index)
-			// 		current_b->price = current_b->target_index;
-			// else
-			// 	current_b->price = current_b->index;
-		}
-		// if (after_mid((*b)->target_index, len_a) && current_b->after_middle)
 		else if (after_mid(current_b->target_index, len_a)
 			&& current_b->after_middle)
-		{
-			 current_b->price = (len_b - current_b->index) + (len_a - current_b->target_index);		
-			// if ((len_a - current_b->target_index) > (len_b - current_b->index))
-			// 	current_b->price = len_a - current_b->target_index;
-			// else
-			// 	current_b->price = len_b - current_b->index;
-		}
+			current_b->price = (len_b - current_b->index)
+				+ (len_a - current_b->target_index);
 		else
 		{
-			// current_b->price = current_b->index;
 			if (current_b->after_middle)
 				current_b->price = len_b - current_b->index;
 			else

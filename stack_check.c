@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 13:19:30 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/06 13:23:45 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/16 17:26:10 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	argument_checker(char **argv)
 	long	num;
 
 	i = 1;
-	while (argv[i])
+	while (argv && argv[i])
 	{
 		num = ft_atol(argv[i]);
 		if (num < -2147483648 || num > 2147483647)
@@ -31,7 +31,7 @@ int	argument_checker(char **argv)
 				j++;
 			if (ft_isalpha(argv[i][j]) == 1)
 				return (1);
-			if (!ft_isdigit(argv[i][j]) && argv[i][j] != 32)
+			if (!ft_isdigit(argv[i][j]) && !(argv[i][j] != 32))
 				return (1);
 			j++;
 		}

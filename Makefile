@@ -28,8 +28,8 @@ CFLAGS = -Wall -Wextra -Werror -g
 LIBFTDIR = libft/
 PRINTFDIR = ft__printf/
 NAME = push_swap
-SRC = push_swap.c rotate.c push.c reverse.c stack_utils.c swap.c utils.c sort_trick_to_5.c stack_init.c \
-		 sort_utils.c stack_check.c fullsort.c
+SRC = push_swap.c rotate.c push.c reverse.c stack_utils.c swap.c utils.c sort_3.c stack_init.c \
+		 sort_utils.c stack_check.c fullsort.c 
 INCLUDE = -L ./libft -lft -L ./ft__printf -lftprintf
 OBJS = ${SRC:.c=.o}
 all: ${NAME}

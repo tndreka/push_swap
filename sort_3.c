@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:55:08 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/14 21:51:07 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/16 16:26:18 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,43 +39,5 @@ void	sort_three(t_stack **stack)
 	{
 		rra(stack);
 		sa(stack);
-	}
-}
-
-void	sort_for(t_stack **a, t_stack **b)
-{
-	int	min1;
-
-	while (len_stack(*a) > 3)
-	{
-		min1 = stackmin(*a);
-		if ((*a)-> data == min1)
-			pb(b, a);
-		else
-			ra(a);
-	}
-	sort_three(a);
-	while (len_stack(*b) > 0)
-	{
-		pa(a, b);
-	}
-}
-
-void	sort_five(t_stack **a, t_stack **b)
-{
-	int	min1;
-
-	while (len_stack(*a) > 3)
-	{
-		min1 = stackmin(*a);
-		if ((*a)-> data == min1)
-			pb(b, a);
-		else
-			ra(a);
-	}
-	sort_three(a);
-	while (len_stack(*b) > 0)
-	{
-		pa(a, b);
 	}
 }

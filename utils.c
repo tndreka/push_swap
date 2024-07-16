@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 16:20:54 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/14 21:47:37 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/16 17:25:40 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ long int	ft_atol(const char *str)
 {
 	int			i;
 	long int	sign;
-	int			res;
+	long		res;
 
 	res = 0;
 	sign = 1;
@@ -26,9 +26,7 @@ long int	ft_atol(const char *str)
 	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-		{
 			sign *= -1;
-		}
 		i++;
 	}
 	while (str[i] != '\0' && str[i] >= 48 && str[i] <= 57)
@@ -91,49 +89,11 @@ int	stackmin(t_stack *stack)
 	return (index);
 }
 
-bool	see_cheap(t_stack **b)
+void	free_all(t_stack **stack)
 {
-	int			match_data;
-	t_stack		*match;
-
-	match_data = INT_MAX;
-	while (*b)
+	while (*stack)
 	{
-		if ((*b)->price < match_data)
-		{
-			match_data = (*b)->price;
-			match = (*b);
-			return (true);
-		}
-		(*b) = (*b)->next;
+		free(*stack);
+		(*stack) = (*stack)->next;
 	}
-	return (false);
 }
-
-// t_stack *cheap_node(t_stack **stack)
-// {
-// 	int			match_data;
-// 	t_stack		*match;
-// 	t_stack		*b;
-
-// 	b = *stack;
-// 	match_data = INT_MAX;
-// 	match = NULL;
-// 	while (b)
-// 	{
-// 		if ((b)->price < match_data)
-// 		{
-// 			match_data = b->price;
-// 			match = (b);
-// 		}
-// 		b = (b)->next;
-// 	}
-// 	return (match);
-// }
-	// while (*stack)
-	// {
-	// 	if ((*stack)->cheap)
-	// 		return (*stack);
-	// 	(*stack) = (*stack)->next;
-	// }
-	// return (*stack);

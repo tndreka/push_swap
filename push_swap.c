@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:40:34 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/15 15:29:31 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/16 20:57:49 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 void	finish_sort(t_stack **a)
 {
 	while (!sortchecker(*a))
-		rra(a);
+		ra(a);
 }
 
 int	main(int argc, char **argv)
@@ -35,26 +35,19 @@ int	main(int argc, char **argv)
 		return (0);
 	else if (argument_checker(argv))
 	{
-		ft_printf("Error\n");
+		write(2, "Error\n", ft_strlen("Error\n"));
 		return (1);
 	}
 	a = stackmaker(argc, argv);
 	if (check_duplicate(a))
 	{
-		ft_printf("Error\n");
+		write(2, "Error\n", ft_strlen("Error\n"));
 		return (1);
 	}
 	if (!sortchecker(a))
 		push_swap(&a, &b);
 	if (!sortchecker(a))
 		finish_sort(&a);
-	
-    free_all(&a);
-	// while (a)
-	// {
-	// 	printf("%d\n",(a)->data);
-	// 	(a) = (a)->next; 
-	// }
+	free_all(&a);
 	return (0);
 }
-
