@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:40:34 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/16 20:57:49 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/17 21:25:48 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,10 @@ int	main(int argc, char **argv)
 		push_swap(&a, &b);
 	if (!sortchecker(a))
 		finish_sort(&a);
+	// while(a)
+	// {
+	// 	printf("%d->\n", )
+	// }
 	free_all(&a);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 16:39:23 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/16 16:25:49 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/17 20:20:10 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_stack	*stackmaker(int argc, char **argv)
 			stack = listmaker(stack, string);
 		}
 		else
-			stack = create_node(ft_atoi(argv[i]), stack);
+			stack = create_node(ft_atol(argv[i]), stack);
 		i--;
 	}
 	return (stack);
@@ -47,7 +47,7 @@ t_stack	*listmaker(t_stack *stack, char **str)
 		temp = malloc(sizeof(t_stack));
 		if (!temp)
 			return (NULL);
-		temp->data = ft_atoi(str[len - 1]);
+		temp->data = ft_atol(str[len - 1]);
 		temp->next = stack;
 		stack = temp;
 		len--;

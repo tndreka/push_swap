@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 16:46:12 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/16 17:39:29 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/17 16:34:12 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,6 @@ void	set_target(t_stack **a, t_stack **b)
 		(*b) = (*b)->next;
 	}
 	*b = tmp;
-}
-
-int	after_mid(int index, int len)
-{
-	return (2 * index >= len);
 }
 
 void	get_price(t_stack **b, int len_a, int len_b)

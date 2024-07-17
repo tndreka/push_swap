@@ -1,35 +1,10 @@
-# CC = cc
-# NAME = push_swap
-# CFLAGS = -Wall -Wextra -Werror
-# LIBFT = libft/
-# FTPRINTF = ft__printf/
-# SRC = push_swap.c rotate.c push.c reverse.c stack_utils.c swap.c utils.c
-# LINK = -L ./libft -lft -L ./ft__printf -lftprintf
-
-# OBJ = $(SRC:.c=.o)
-# all: ${NAME}
-# ${NAME}: ${OBJ}
-# 	@make -sC ${LIBFT}
-# 	@make -sC ${FTPRINT}
-# 	@${CC} ${CFLAGS} -o ${NAME} ${OBJ} ${LINK}
-# clean :
-# 	rm -f ${OBJ}
-# 	@cd ${LIBFT} && ${MAKE} clean
-# 	@cd ${FTPRINTF} && ${MAKE} clean
-# fclean : clean
-# 	rm -f ${NAME}
-# 	@cd ${LIBFT} && ${MAKE} fclean
-# 	@cd ${FTPRINTF} && ${MAKE} fclean
-# re: fclean all
-# .PHONY: all clean fclean re
-
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
 LIBFTDIR = libft/
 PRINTFDIR = ft__printf/
 NAME = push_swap
 SRC = push_swap.c rotate.c push.c reverse.c stack_utils.c swap.c utils.c sort_3.c stack_init.c \
-		 sort_utils.c stack_check.c fullsort.c 
+		 sort_utils.c stack_check.c fullsort.c fullsort_utils.c
 INCLUDE = -L ./libft -lft -L ./ft__printf -lftprintf
 OBJS = ${SRC:.c=.o}
 all: ${NAME}

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_trick_to_5.c                                  :+:      :+:    :+:   */
+/*   sort_3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:55:08 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/16 16:26:18 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/17 16:33:46 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	sort_three(t_stack **stack)
 		&& (*stack)->next->data < (*stack)->next->next->data // 2 > 1 < 3
 		&& (*stack)->data < (*stack)->next->next->data)
 		sa(stack);
-	else if ((*stack)->data > (*stack)->next->data //  3 > 2 > 1
+	else if ((*stack)->data > (*stack)->next->data
 		&& (*stack)->next->data > (*stack)->next->next->data)
 	{
 		sa(stack);

@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 22:50:41 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/16 20:56:15 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/17 20:41:40 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,8 +58,15 @@ bool		middle_check(t_stack **stack, int i);
 void		set_target(t_stack **a, t_stack **b);
 void		set_match(int *match, t_stack *tmp_a, t_stack **b);
 void		get_price(t_stack **b, int len_a, int len_b);
-//bool		get_cheap( t_stack **b);
 int			after_mid(int index, int len);
+/// Handle MOVE TO A;
+void		handle_afteremidd(t_stack **a, t_stack **b,
+				int a_index, int b_index);
+void		handle_beforemidd(t_stack **a, t_stack **b,
+				int a_index, int b_index);
+void		handle_mix_b(t_stack **b, t_stack *to_a, int b_index);
+void		handle_mix_a(t_stack **a, int a_index);
+void		case_2(t_stack **a, t_stack **b, int a_index);
 //Create Stack - STACK INIT
 t_stack		*stackmaker(int argc, char **argv);
 t_stack		*listmaker(t_stack *stack, char **str);
@@ -78,9 +85,5 @@ int			sortchecker(t_stack *stack);
 int			stackmin(t_stack *stack);
 int			is_space(char *argv);
 void		free_all(t_stack **stack);
-/// 
-void handle_afteremidd(t_stack **a, t_stack **b, int a_index, int b_index);
-void handle_beforemidd(t_stack **a, t_stack **b, int a_index, int b_index);
-void handle_mix(t_stack **a, t_stack **b, t_stack *to_a ,int a_index, int b_index);
-void case_2(t_stack **a, t_stack **b, int a_index);
+int			stackmin2(t_stack *stack);
 #endif

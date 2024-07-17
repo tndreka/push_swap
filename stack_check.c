@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 13:19:30 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/16 17:26:10 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/17 21:30:17 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	argument_checker(char **argv)
 	long	num;
 
 	i = 1;
-	while (argv && argv[i])
+	while (argv[i])
 	{
 		num = ft_atol(argv[i]);
 		if (num < -2147483648 || num > 2147483647)
@@ -60,4 +60,9 @@ int	check_duplicate(t_stack *stack)
 		stack = stack->next;
 	}
 	return (0);
+}
+
+int	after_mid(int index, int len)
+{
+	return (2 * index >= len);
 }
