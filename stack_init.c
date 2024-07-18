@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/08 16:39:23 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/17 20:20:10 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/18 19:06:51 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 t_stack	*stackmaker(int argc, char **argv)
 {
-	t_stack		*stack;
-	char		**string;
-	int			i;
+	t_stack	*stack;
+	char	**string;
+	int		i;
 
 	stack = NULL;
 	i = argc - 1;
@@ -26,6 +26,7 @@ t_stack	*stackmaker(int argc, char **argv)
 		{
 			string = ft_split(argv[i], 32);
 			stack = listmaker(stack, string);
+			free_str(string);
 		}
 		else
 			stack = create_node(ft_atol(argv[i]), stack);
@@ -60,11 +61,24 @@ t_stack	*create_node(int value, t_stack *stack)
 {
 	t_stack	*node;
 
-	node = (t_stack *) malloc (sizeof(t_stack));
-	if (! node)
+	node = (t_stack *)malloc(sizeof(t_stack));
+	if (!node)
 		return (NULL);
 	node->data = value;
 	node->next = stack;
 	stack = node;
 	return (node);
+}
+
+void	free_str(char **string)
+{
+	int	j;
+
+	j = 0;
+	while (string[j])
+	{
+		free(string[j]);
+		j++;
+	}
+	free(string);
 }

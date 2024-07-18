@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 03:33:31 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/17 21:02:50 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/18 19:09:51 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,7 @@ void	fullsort(t_stack **a, t_stack **b)
 	int	len_of_b;
 
 	while (len_stack(*a) > 3 && !sortchecker(*a))
-	{
-		if (stackmin(*a))
-			ra(a);
-		else
-			pb(b, a);
-	}
+		pb(b, a);
 	sort_three(a);
 	while ((*b))
 	{

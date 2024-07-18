@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 16:20:54 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/17 20:40:24 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/18 15:11:02 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	sortchecker(t_stack *stack)
 
 	temp = stack;
 	if (!stack || !stack->next)
-		return (1);
+		return (0);
 	while (temp->next)
 	{
 		if (temp->data > temp->next->data)
