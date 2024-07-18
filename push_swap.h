@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 22:50:41 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/18 18:58:10 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/18 21:47:32 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,5 +86,5 @@ int			stackmin(t_stack *stack);
 int			is_space(char *argv);
 void		free_all(t_stack **stack);
 void		free_str(char **string);
-int			stackmin2(t_stack *stack);
+void	sort_five(t_stack **a, t_stack **b);
 #endif

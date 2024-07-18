@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 03:33:31 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/18 19:09:51 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/18 21:51:06 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	push_swap(t_stack **a, t_stack **b)
 		sa(a);
 	else if (len_stack(*a) == 3)
 		sort_three(a);
+	else if (len_stack(*a) == 5)
+		sort_five(a, b);
 	else
 		fullsort(a, b);
 }
