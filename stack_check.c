@@ -6,12 +6,13 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 13:19:30 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/17 21:30:17 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/18 14:36:08 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 // check the argument if is a number from 0 to 9 a positive or a negative number
+
 int	argument_checker(char **argv)
 {
 	int		i;
@@ -31,7 +32,7 @@ int	argument_checker(char **argv)
 				j++;
 			if (ft_isalpha(argv[i][j]) == 1)
 				return (1);
-			if (!ft_isdigit(argv[i][j]) && !(argv[i][j] != 32))
+			if (!ft_isdigit(argv[i][j]) && argv[i][j] != 32)
 				return (1);
 			j++;
 		}
