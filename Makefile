@@ -1,5 +1,5 @@
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 LIBFTDIR = libft/
 PRINTFDIR = ft__printf/
 NAME = push_swap
