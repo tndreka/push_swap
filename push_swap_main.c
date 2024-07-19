@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/21 13:40:34 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/18 21:35:01 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/19 20:49:16 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,6 @@ void	finish_sort(t_stack **a)
 		ra(a);
 }
 
-// void	leaks(void)
-// {
-// 	system("leaks push_swap");
-// }
-
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
@@ -38,7 +33,7 @@ int	main(int argc, char **argv)
 	b = NULL;
 	if (argc == 1)
 		return (0);
-	else if (argument_checker(argv))
+	if (argument_checker(argv))
 	{
 		write(2, "Error\n", ft_strlen("Error\n"));
 		return (1);
@@ -54,6 +49,5 @@ int	main(int argc, char **argv)
 	if (!sortchecker(a))
 		finish_sort(&a);
 	free_all(&a);
-	// atexit(leaks);
 	return (0);
 }
