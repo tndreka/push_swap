@@ -6,7 +6,7 @@
 /*   By: tndreka <tndreka@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/20 22:50:41 by tndreka           #+#    #+#             */
-/*   Updated: 2024/07/19 22:38:21 by tndreka          ###   ########.fr       */
+/*   Updated: 2024/07/20 13:39:02 by tndreka          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <stdbool.h>
-# include "./libft/libft.h"
-# include "./ft__printf/ft_printf.h"
+# include "./libft_p/libft.h"
+# include "./ft__printf_p/ft_printf.h"
 
 //STRUCT
 typedef struct s_stack
