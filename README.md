@@ -36,4 +36,32 @@ In this implementation, both **Stack A** and **Stack B** are represented using a
 ## Example: Sorting `[5, 2, 9, 1, 3]`
 
 **Initial State**:
-- Stack A: `[5, 2, 9, 1,
+- Stack A: `[5, 2, 9, 1, 3]`
+- Stack B: `[]`
+
+### Process:
+1. **Move smallest number to Stack B**:
+   - Rotate Stack A until the smallest number (1) is at the top, then push it to Stack B.
+   - New State: 
+     - Stack A: `[2, 9, 5, 3]`
+     - Stack B: `[1]`
+   
+2. **Move the next smallest number to Stack B**:
+   - Rotate Stack A to bring the next smallest number (2) to the top and push it to Stack B.
+   - New State: 
+     - Stack A: `[5, 3, 9]`
+     - Stack B: `[1, 2]`
+   
+3. **Continue this process**:
+   - Keep moving numbers from Stack A to Stack B in this manner until all numbers are moved to Stack B.
+   
+4. **Sort Stack B and move numbers back to Stack A**:
+   - After Stack B contains all the numbers, perform operations like `ra` and `rb` to rotate them into sorted order.
+   
+### Final State:
+- Stack A: `[1, 2, 3, 5, 9]` (sorted)
+- Stack B: `[]` (empty)
+
+## Conclusion
+
+The Push Swap algorithm efficiently sorts numbers using a minimal number of operations by cleverly utilizing two stacks and a limited set of actions. The key to a successful implementation is choosing the right elements to move between the stacks, applying rotations and swaps intelligently, and minimizing the number of moves required to reach a sorted list. By using a **singular list** for the implementation of Stack A and Stack B, the algorithm simplifies stack operations like pushing and popping while ensuring an efficient solution to the problem.
