@@ -2,36 +2,35 @@
 
 ## Overview
 
-The Push Swap algorithm is designed to sort a list of numbers using only two stacks (Stack A and Stack B) and a limited set of operations. The goal is to sort the numbers in ascending order with the fewest operations possible. The operations allowed are:
+The Push Swap algorithm sorts a list of numbers using only two stacks, Stack A and Stack B, with a limited set of operations. The aim is to sort the numbers in ascending order using the fewest operations possible. The following operations are permitted:
 
 - `sa`: Swap the first two elements of Stack A.
 - `sb`: Swap the first two elements of Stack B.
-- `ss`: Perform both `sa` and `sb` at the same time.
+- `ss`: Perform `sa` and `sb` simultaneously.
 - `pa`: Push the top element of Stack B to Stack A.
 - `pb`: Push the top element of Stack A to Stack B.
-- `ra`: Rotate Stack A (move the top element to the bottom).
-- `rb`: Rotate Stack B (move the top element to the bottom).
-- `rr`: Perform both `ra` and `rb` at the same time.
-- `rra`: Reverse rotate Stack A (move the bottom element to the top).
-- `rrb`: Reverse rotate Stack B (move the bottom element to the top).
-- `rrr`: Perform both `rra` and `rrb` at the same time.
+- `ra`: Rotate Stack A (the first element becomes the last one).
+- `rb`: Rotate Stack B (the first element becomes the last one).
+- `rr`: Perform `ra` and `rb` simultaneously.
+- `rra`: Reverse rotate Stack A, moving the bottom element to the top.
+- `rrb`: Reverse rotate Stack B, moving the bottom element to the top.
+- `rrr`: Perform `rra` and `rrb` simultaneously.
 
 ## Approach
 
-The algorithm follows a strategy to sort the elements from Stack A by progressively moving elements into Stack B and performing necessary operations to ensure the list in Stack A becomes sorted.
+The algorithm sorts elements in Stack A by iteratively transferring them into Stack B and then carrying out operations to sort the list in Stack A.
 
 ### Key Concepts
 - **Stack A**: Initially contains the unsorted list of numbers.
-- **Stack B**: Used temporarily to store elements while Stack A is being sorted.
-- **Operations**: Only the operations listed above are allowed, and the goal is to minimize their usage.
+- **Stack B**: A temporary repository used to hold elements as Stack A is sorted.
+- **Operations**: Only the above-mentioned operations are permitted, and the goal is to minimize their usage.
 
-In this implementation, both **Stack A** and **Stack B** are represented using a **singular list** (a single linked list). Each stack is essentially a linked list where each node points to the next. Operations like pushing and popping are performed at the head of the list, simplifying the handling of elements in the stacks.
+In the following implementation, both **Stack A** and **Stack B** are implemented as **single linked lists**. Each stack is a linked list where each node points to the next, and operations like push and pop are performed at the head of the list for simplicity. Here's how it works:
 
-### Process
-1. **Move the smallest element to Stack B**: Identify the smallest number in Stack A and rotate the stack until it is at the top. Then, push it to Stack B.
-2. **Repeat the process for the next smallest elements**: Continue identifying the smallest numbers, rotating Stack A, and pushing the elements to Stack B until all elements are moved to Stack B.
-3. **Sort Stack B**: Once Stack B is filled with elements, perform the necessary operations to push them back to Stack A in ascending order. Stack A will be sorted at the end of this step.
-4. **Return sorted list**: The numbers are now sorted in Stack A, and Stack B will be empty.
+1. **Move the smallest element to Stack B**: Find the smallest number in Stack A and perform the rotation of the stack to bring it to the top. Then, push it into Stack B.
+2. **Repeat for the next smallest elements**: Continue finding the smallest element, performing rotations in Stack A, and pushing elements to Stack B until all elements are in Stack B.
+3. **Sort Stack B**: Once Stack B is filled, perform the required operations to push the elements back to Stack A in ascending order. Stack A will be sorted at the end.
+4. **Return the sorted list**: After sorting, Stack A will contain the sorted numbers, and Stack B will be empty.
 
 ## Example: Sorting `[5, 2, 9, 1, 3]`
 
@@ -41,27 +40,26 @@ In this implementation, both **Stack A** and **Stack B** are represented using a
 
 ### Process:
 1. **Move smallest number to Stack B**:
-   - Rotate Stack A until the smallest number (1) is at the top, then push it to Stack B.
+   - Rotate Stack A until the smallest number, 1, is at the top; then push it to Stack B.
    - New State: 
      - Stack A: `[2, 9, 5, 3]`
      - Stack B: `[1]`
    
 2. **Move the next smallest number to Stack B**:
-   - Rotate Stack A to bring the next smallest number (2) to the top and push it to Stack B.
-   - New State: 
+   - Rotate Stack A to bring the next smallest number, 2, to the top and push it to Stack B.
+   - New State:
      - Stack A: `[5, 3, 9]`
      - Stack B: `[1, 2]`
    
-3. **Continue this process**:
-   - Keep moving numbers from Stack A to Stack B in this manner until all numbers are moved to Stack B.
-   
+3. **Repeat this process**:
+   - Continue repeating this process for all elements, moving the smallest elements to Stack B.
+
 4. **Sort Stack B and move numbers back to Stack A**:
-   - After Stack B contains all the numbers, perform operations like `ra` and `rb` to rotate them into sorted order.
-   
-### Final State:
-- Stack A: `[1, 2, 3, 5, 9]` (sorted)
-- Stack B: `[]` (empty)
+   - Once all numbers are moved to Stack B, perform rotations and operations to push them back to Stack A in the correct order.
+   - Final State:
+     - Stack A: `[1, 2, 3, 5, 9]` (Sorted)
+     - Stack B: `[]` (Empty)
 
 ## Conclusion
 
-The Push Swap algorithm efficiently sorts numbers using a minimal number of operations by cleverly utilizing two stacks and a limited set of actions. The key to a successful implementation is choosing the right elements to move between the stacks, applying rotations and swaps intelligently, and minimizing the number of moves required to reach a sorted list. By using a **singular list** for the implementation of Stack A and Stack B, the algorithm simplifies stack operations like pushing and popping while ensuring an efficient solution to the problem.
+The Push Swap algorithm uses just two stacks and a limited set of operations to efficiently sort numbers in ascending order. The key to a successful implementation is choosing the right elements to move between the stacks, applying rotations and swaps intelligently, and minimizing the number of moves required to achieve a sorted list. The use of **single linked lists** for Stack A and Stack B simplifies stack operations such as pushing and popping, ensuring that the algorithm remains efficient.
